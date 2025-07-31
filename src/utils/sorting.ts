@@ -10,8 +10,8 @@ export function multiSort(clients: Client[], criteria: SortCriterion[]): Client[
 
   return [...clients].sort((a, b) => {
     for (const criterion of criteria) {
-      let aValue: any;
-      let bValue: any;
+      let aValue: string | number;
+      let bValue: string | number;
 
       // Get the values to compare based on the field
       switch (criterion.field) {

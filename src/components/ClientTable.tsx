@@ -12,7 +12,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Search, Filter, Plus } from 'lucide-react';
-import { DateRangeFilter, DateRange } from '@/components/DateRangeFilter';
+import { DateRangeFilter } from '@/components/DateRangeFilter';
 
 interface ClientTableProps {
   clients: Client[];
