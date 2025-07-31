@@ -10,11 +10,8 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 import { Badge } from '@/components/ui/badge';
-
-export interface DateRange {
-  from?: Date;
-  to?: Date;
-}
+import { DateRange as ReactDayPickerDateRange } from 'react-day-picker';
+import { DateRange } from '@/types/client';
 
 interface DateRangeFilterProps {
   label: string;
@@ -59,10 +56,10 @@ export function DateRangeFilter({ label, value, onChange }: DateRangeFilterProps
           </div>
           <Calendar
             mode="range"
-            selected={value}
-            onSelect={(range) => {
+            selected={value.from && value.to ? { from: value.from, to: value.to } : undefined}
+            onSelect={(range: ReactDayPickerDateRange | undefined) => {
               if (range) {
-                onChange(range);
+                onChange({ from: range.from, to: range.to });
               }
             }}
             numberOfMonths={1}
